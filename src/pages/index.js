@@ -1,60 +1,35 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { css } from "@emotion/core"
-import { Card, Container, Title, Divider } from "rbx"
+import { Container, Section, Title, Column } from "rbx"
 import Layout from "../components/layout"
 
-export default ({ data }) => (
+export default () => (
   <Layout>
     <Container>
-      <Title size={2}>Posts pulled from <span css={css`color:red;`}>Contentstack</span></Title>
-      {data.allContentstackArticles.nodes.map((node) => (
-        <div key={node.id}>
-          <Card>
-            <Card.Content>
-              <Title>{node.title}</Title>
-              <p>{node.multi_line}</p>
-            </Card.Content>
-          </Card>
-        </div>
-      ))}
-      <Divider color="black">Even more</Divider>
-      <Title size={2}>Posts read from local <span css={css`color:red;`}>Markdown</span></Title>
-      {data.allMarkdownRemark.nodes.map((node) => (
-        <div key={node.id}>
-          <Card>
-            <Card.Content>
-              <Title>{node.frontmatter.title}{" "}
-                — {node.frontmatter.date}</Title>
-              <p>{node.excerpt}</p>
-            </Card.Content>
-          </Card>
-        </div>
-      ))}
+      <Section>
+        <Title size={2}><span css={css`color:red;`}>Enroute</span> front page.</Title>
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec velit nisi. Vivamus volutpat, erat in volutpat laoreet, metus ex vulputate turpis, et lobortis diam magna id turpis. Integer luctus nibh nec dolor mattis ornare. Vestibulum fringilla non neque ac congue. Praesent mollis sed odio eget sodales. Mauris mattis eget ligula non fermentum. Vestibulum porta, sapien eu mollis blandit, eros ligula aliquam nulla, quis rhoncus purus quam eget enim. Duis consectetur augue vel dui sagittis luctus. Pellentesque ullamcorper porta metus, eu dignissim libero imperdiet vel. Maecenas non lacus pulvinar, eleifend odio quis, pellentesque odio. Phasellus eu congue ligula, quis viverra enim. Phasellus aliquet ex non felis vehicula iaculis. Cras eget eros vitae eros egestas bibendum eu quis metus. Integer faucibus tincidunt massa, id interdum nunc ultrices ut.
+        </p>
+      </Section>
+    </Container>
+    <Container css={css`background-color:#005a86;color:#fff;margin-bottom:20px`}>
+      <Section>
+        <Column.Group>
+          <Column>
+            <Title css={css`color:#fff;`}>Asdf 1</Title>
+            Morbi commodo urna id varius euismod. Morbi sagittis, justo ullamcorper dapibus pharetra, dui nisl efficitur magna, a volutpat augue lorem sed erat. Nullam sem nisi, rutrum at felis in, sodales venenatis lectus. Mauris vel est leo.
+          </Column>
+          <Column>
+            <Title css={css`color:#fff;`}>Asdf 2</Title>
+            Vestibulum viverra arcu neque, eget mollis augue luctus non. Praesent feugiat, mi id congue porttitor, est arcu sollicitudin nulla, eget pretium metus felis non metus. Ut pretium sapien auctor ipsum fringilla condimentum. Maecenas blandit arcu sit amet enim.
+          </Column>
+          <Column>
+            <Title css={css`color:#fff;`}>Asdf 3</Title>
+            Aliquet, nec imperdiet dolor blandit. Fusce suscipit, libero vel ultrices auctor, ligula eros viverra metus, ut cursus massa quam vel eros. Praesent eu ex volutpat, rutrum diam non, sagittis orci.
+          </Column>
+          </Column.Group>
+      </Section>
     </Container>
   </Layout>
 )
-
-export const pageQuery = graphql`
-    query HomeQuery {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-        nodes {
-          id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM, YYYY")
-          }
-          excerpt
-        }
-      }
-      allContentstackArticles {
-        nodes {
-          id
-          title
-          date
-          multi_line
-          url
-        }
-      }
-    }
-`

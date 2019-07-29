@@ -1,9 +1,6 @@
 import React from "react"
-import { css } from "@emotion/core"
 import "rbx/index.css"
 import { Navbar, Container, Footer, Content } from "rbx"
-import { Link } from "gatsby"
-import { rhythm } from "../utils/typography"
 
 export default ({ children }) => (
   <div>
@@ -16,6 +13,7 @@ export default ({ children }) => (
         <Navbar.Menu>
           <Navbar.Segment align="start">
             <Navbar.Item href="/">Home</Navbar.Item>
+            <Navbar.Item href="/blog/">Blog</Navbar.Item>
             <Navbar.Item href="/about/">About</Navbar.Item>
           </Navbar.Segment>
         </Navbar.Menu>

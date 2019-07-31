@@ -29,6 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
       allContentstackArticles {
         nodes {
           url
+          locale
         }
       }
     }
@@ -39,15 +40,17 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/blog-post.js`),
         context: {
           slug: node.fields.slug,
+          locale: "en-us"
         },
       })
     })
     result.data.allContentstackArticles.nodes.forEach(node => {
       createPage({
-        path: "blog" + node.url + "/",
+        path: (node.locale === "es-mx" ? "es-mx" : "en-us") + "/blog" + node.url + "/",
         component: path.resolve(`./src/templates/blog-post.js`),
         context: {
-          slug: node.url
+          slug: node.url,
+          locale: node.locale
         }
       })
     })

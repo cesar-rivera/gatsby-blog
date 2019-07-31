@@ -22,7 +22,7 @@ module.exports = {
     resolve: `gatsby-source-contentstack`,
       options: {
         api_key: `blt23ca1580fadce274`,
-        access_token: `bltc998c1d9b77d5fea`,
+        access_token: `blt95dbec2fa509cae5`,
         environment: `development`
       },
     }

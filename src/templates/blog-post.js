@@ -12,7 +12,7 @@ export default ({ data }) => {
     post.bodyHtml = post.html
   } else {
     post = data.contentstackArticles
-    post.bodyHtml = post.multi_line
+    post.bodyHtml = post.body
   }
   return (
   <Layout>
@@ -26,10 +26,10 @@ export default ({ data }) => {
 )}
 
 export const query = graphql`
-  query($slug: String!) {
-    contentstackArticles(url: {eq: $slug } ) {
+  query($slug: String!, $locale: String!) {
+    contentstackArticles(locale: {eq: $locale}, url: {eq: $slug}) {
       title
-      multi_line
+      body
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html

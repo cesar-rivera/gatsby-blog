@@ -21,7 +21,7 @@ export default ({ data }) => (
               <Card.Content>
                 <Title>{node.title}{" "}
                   <span className="is-size-6 has-text-grey">— {node.date}</span></Title>
-                <p>{node.multi_line}</p>
+                <p>{node.body}</p>
               </Card.Content>
             </Link>
           </Card>
@@ -72,7 +72,7 @@ export const pageQuery = graphql`
           id
           title
           date(formatString: "DD MMMM, YYYY")
-          multi_line
+          body
           url
         }
       }

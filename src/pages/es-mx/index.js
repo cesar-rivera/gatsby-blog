@@ -1,13 +1,13 @@
 import React from "react"
 import { css } from "@emotion/core"
 import { Container, Section, Title, Column } from "rbx"
-import Layout from "../components/layout"
+import Layout from "../../components/layout"
 
 export default () => (
-  <Layout locale="en-us">
+  <Layout locale="es-mx">
     <Container>
       <Section>
-        <Title size={2}><span css={css`color:red;`}>Enroute</span> front page.</Title>
+        <Title size={2}>Página de inicio <span css={css`color:red;`}>Enroute</span>.</Title>
         <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec velit nisi. Vivamus volutpat, erat in volutpat laoreet, metus ex vulputate turpis, et lobortis diam magna id turpis. Integer luctus nibh nec dolor mattis ornare. Vestibulum fringilla non neque ac congue. Praesent mollis sed odio eget sodales. Mauris mattis eget ligula non fermentum. Vestibulum porta, sapien eu mollis blandit, eros ligula aliquam nulla, quis rhoncus purus quam eget enim. Duis consectetur augue vel dui sagittis luctus. Pellentesque ullamcorper porta metus, eu dignissim libero imperdiet vel. Maecenas non lacus pulvinar, eleifend odio quis, pellentesque odio. Phasellus eu congue ligula, quis viverra enim. Phasellus aliquet ex non felis vehicula iaculis. Cras eget eros vitae eros egestas bibendum eu quis metus. Integer faucibus tincidunt massa, id interdum nunc ultrices ut.
         </p>
